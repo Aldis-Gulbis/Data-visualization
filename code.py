@@ -1,3 +1,5 @@
 from web_crawler import get_values
+from visualize import visualize_data
 
-get_values()
+#get_values()
+visualize_data()

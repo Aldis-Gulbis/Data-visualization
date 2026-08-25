@@ -36,9 +36,6 @@ def get_values():
     driver.get(url)
     time.sleep(2)
 
-    #button = driver.find_element(By.CSS_SELECTOR, "fc-button.fc-cta-do-not-consent.fc-secondary-button")
-    #button.click()
-
     time.sleep(2)
 
     saturs = bs4.BeautifulSoup(driver.page_source, "html.parser")
