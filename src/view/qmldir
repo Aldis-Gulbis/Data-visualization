@@ -1,0 +1,7 @@
+module view
+
+MainWindow 1.0 main_window/main_window.qml
+singleton Colors 1.0 constant/colors.qml
+OptionButton 1.0 buttons/option_button.qml
+RadioButton 1.0 buttons/radio_button.qml
+FunctionButton 1.0 buttons/function_button.qml

@@ -1,11 +1,11 @@
 import os
 
 def open_file():
-    if os.path.exists("Prices.csv"):
-        fails = open("Prices.csv", "a", encoding = "utf-8")
+    if os.path.exists("../Prices.csv"):
+        fails = open("../Prices.csv", "a", encoding ="utf-8")
 
     else:
-        fails = open("Prices.csv", "a", encoding="utf-8")
+        fails = open("../Prices.csv", "a", encoding="utf-8")
         fails.write("Valsts nosaukums;Benzīna cena (€/L);Dīzeļdegvielas cena (€/L);Datums\n")
 
     return fails

@@ -1,8 +1,8 @@
-import pandas as pd
+import pandas
 import matplotlib.pyplot as plt
 
 def visualize_data():
-    fails = pd.read_csv("Prices.csv", delimiter = ";")
+    fails = pandas.read_csv("../Prices.csv", delimiter =";")
 
     create_scatterplot(fails)
     create_boxplot(fails)
@@ -10,7 +10,7 @@ def visualize_data():
     #create_linear_regression(fails)
 
 def create_scatterplot(fails):
-    fails["Datums"] = pd.to_datetime(fails["Datums"], format = "%d %b %y")
+    fails["Datums"] = pandas.to_datetime(fails["Datums"], format = "%d %b %y")
 
     fails.plot.scatter(
         x = "Datums",
