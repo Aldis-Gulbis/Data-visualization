@@ -13,6 +13,9 @@ ApplicationWindow{
 
     color: Colors.window.background
 
+    property string country: ""
+    property string category: ""
+
 
     ColumnLayout{
         anchors.horizontalCenter: parent.horizontalCenter
@@ -59,6 +62,14 @@ ApplicationWindow{
                     id: optionButton
                     anchors.verticalCenter: parent.verticalCenter
                     options: modelData.options
+
+                    onSelectedTextChanged: {
+                        if(modelData.objName === "countryOptionButton")
+                            root.country = selectedText
+
+                        else if (modelData.objName === "categoryOptionButton")
+                            root.category = selectedText
+                    }
                 }
 
                 Text{
@@ -107,12 +118,25 @@ ApplicationWindow{
 
             Repeater{
                 model: [
-                    { text: "Show" },
-                    { text: "Update prices" }
+                    { text: "Show", action: "create" },
+                    { text: "Update prices", action: "update" }
                 ]
 
                 delegate: FunctionButton{
                     text: modelData.text
+
+                    onClicked:{
+                        if (modelData.action === "update") {
+                            updatePrices.get_values()
+
+                        }else if (modelData.action === "create") {
+                            var plotType = graphGroup.checkedButton
+                                ? graphGroup.checkedButton.text
+                                : ""
+
+                            createPlot.visualize_data(root.country, root.category, plotType)
+                        }
+                    }
                 }
             }
         }
